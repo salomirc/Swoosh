@@ -1,4 +1,4 @@
-package com.example.welcomeactivity
+package com.swoosh.welcomeactivity
 
 import org.junit.Test
 

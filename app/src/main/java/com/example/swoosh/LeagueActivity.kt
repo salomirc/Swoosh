@@ -1,8 +1,7 @@
-package com.swoosh.welcomeactivity
+package com.example.swoosh
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.swoosh.R
 
 class LeagueActivity : AppCompatActivity() {
 

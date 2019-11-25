@@ -3,6 +3,7 @@ package com.example.swoosh
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.core.app.ShareCompat
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.util.*
@@ -17,7 +18,7 @@ class WelcomeActivity : AppCompatActivity() {
         val getStartedUppercase = GetStartedButton.text.toString().toUpperCase(Locale.getDefault())
         GetStartedButton.text = getStartedUppercase
 
-        GetStartedButton.setOnClickListener {
+        GetStartedButton.setOnClickListener{
             var intent = Intent(this, LeagueActivity::class.java)
             startActivity(intent)
         }

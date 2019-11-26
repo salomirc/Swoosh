@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.activity_league.*
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.util.*
 
-class LeagueActivity : AppCompatActivity() {
+class LeagueActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,5 +14,29 @@ class LeagueActivity : AppCompatActivity() {
 
         val nextButtonUppercase = NextButton.text.toString().toUpperCase(Locale.getDefault())
         NextButton.text = nextButtonUppercase
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+    }
+
+    override fun onStart() {
+        super.onStart()
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

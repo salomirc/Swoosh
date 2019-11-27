@@ -1,7 +1,9 @@
 package com.example.swoosh
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.activity_league.*
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.util.*
@@ -12,8 +14,15 @@ class LeagueActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_league)
 
-        val nextButtonUppercase = NextButton.text.toString().toUpperCase(Locale.getDefault())
-        NextButton.text = nextButtonUppercase
+        NextButton.text = NextButton.text.toString().toUpperCase(Locale.getDefault())
+//        NextButton.setOnClickListener {
+////            startActivity(Intent(this, SkillActivity::class.java))
+////        }
+
+    }
+
+    fun nextButtonClicked(view: View) {
+        startActivity(Intent(this, SkillActivity::class.java))
     }
 
     override fun onRestart() {

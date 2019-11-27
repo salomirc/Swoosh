@@ -62,6 +62,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/swoosh_button"
         android:fontFamily="@font/montserrat"
+        android:onClick="nextButtonClicked"
         android:text="@string/next"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"

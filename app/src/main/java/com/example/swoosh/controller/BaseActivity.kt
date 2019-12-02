@@ -1,8 +1,9 @@
-package com.example.swoosh
+package com.example.swoosh.controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ToggleButton
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -41,6 +42,10 @@ open class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         Log.d(TAG, "${javaClass.simpleName} OnDestroy")
         super.onDestroy()
+    }
+
+    fun setSelectedLeague(button: ToggleButton, resId: Int): String {
+        return if (button.isChecked) getString(resId) else ""
     }
 
 }

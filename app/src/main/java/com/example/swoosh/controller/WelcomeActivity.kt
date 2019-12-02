@@ -1,8 +1,8 @@
-package com.example.swoosh
+package com.example.swoosh.controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.swoosh.R
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.util.*
 

@@ -1,13 +1,15 @@
-package com.example.swoosh
+package com.example.swoosh.controller
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
+import android.widget.ToggleButton
+import com.example.swoosh.utilities.EXTRA_LEAGUE
+import com.example.swoosh.R
 import kotlinx.android.synthetic.main.activity_league.*
-import kotlinx.android.synthetic.main.activity_welcome.*
 import java.util.*
 
 class LeagueActivity : BaseActivity() {
@@ -24,19 +26,19 @@ class LeagueActivity : BaseActivity() {
     fun mensLeagueButtonClicked(view: View) {
         womensLeagueButton.isChecked = false
         coedLeagueButton.isChecked = false
-        selectedLeague = "mens"
+        selectedLeague = setSelectedLeague(view as ToggleButton, R.string.mensTxt)
     }
 
     fun womensLeagueButtonClicked(view: View) {
         mensLeagueButton.isChecked = false
         coedLeagueButton.isChecked = false
-        selectedLeague = "womens"
+        selectedLeague = setSelectedLeague(view as ToggleButton, R.string.womensTxt)
     }
 
     fun coedLeagueButtonClicked(view: View) {
         mensLeagueButton.isChecked = false
         womensLeagueButton.isChecked = false
-        selectedLeague = "co-ed"
+        selectedLeague = setSelectedLeague(view as ToggleButton, R.string.co_edTxt)
     }
 
     fun nextButtonClicked(view: View) {
@@ -48,7 +50,7 @@ class LeagueActivity : BaseActivity() {
         }
         else
         {
-            val message = Toast.makeText(this, "Please select a league.", Toast.LENGTH_SHORT)
+            val message = Toast.makeText(this, R.string.selectLeagueMessage, Toast.LENGTH_SHORT)
             message.setGravity(Gravity.BOTTOM,0, 200)
             message.show()
         }

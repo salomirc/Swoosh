@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SkillActivity">
+    tools:context=".controller.SkillActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -51,40 +51,42 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ToggleButton
-        android:id="@+id/toggleButton"
+        android:id="@+id/beginnerButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/swoosh_toggle"
+        android:onClick="beginnerButtonClicked"
         android:text="@string/beginner"
         android:textColor="@android:color/background_light"
         android:textOff="@string/beginner"
         android:textOn="@string/beginner"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/toggleButton4"
+        app:layout_constraintEnd_toStartOf="@+id/ballerButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <ToggleButton
-        android:id="@+id/toggleButton4"
+        android:id="@+id/ballerButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:background="@drawable/swoosh_toggle"
+        android:onClick="ballerButtonClicked"
         android:text="@string/baller"
         android:textColor="@android:color/background_light"
         android:textOff="@string/baller"
         android:textOn="@string/baller"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toggleButton"
+        app:layout_constraintBottom_toBottomOf="@+id/beginnerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton"
-        app:layout_constraintTop_toTopOf="@+id/toggleButton" />
+        app:layout_constraintStart_toEndOf="@+id/beginnerButton"
+        app:layout_constraintTop_toTopOf="@+id/beginnerButton" />
 
     <Button
         android:id="@+id/FinishButton"
@@ -95,6 +97,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/swoosh_button"
         android:fontFamily="@font/montserrat"
+        android:onClick="finishButtonClicked"
         android:text="@string/finish"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"

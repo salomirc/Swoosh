@@ -7,11 +7,19 @@
     <string name="next">Next</string>
     <string name="desired_league">Desired League</string>
     <string name="mens">Mens</string>
+    <string name="mensTxt">mens</string>
     <string name="todo">TODO</string>
     <string name="womens">Womens</string>
+    <string name="womensTxt">womens</string>
     <string name="co_ed">Co-Ed</string>
+    <string name="co_edTxt">Co-Ed</string>
     <string name="i_am_a">I am a:</string>
     <string name="beginner">Beginner</string>
+    <string name="beginnerTxt">beginner</string>
     <string name="baller">Baller</string>
+    <string name="ballerTxt">baller</string>
     <string name="finish">FINISH</string>
+    <string name="selectLeagueMessage">Please select a league.</string>
+    <string name="selectSkillMessage">Please select a skill.</string>
+    <string name="FinishActivityMessageTxt">Looking for %1$s %2$s league near you…</string>
 </resources>

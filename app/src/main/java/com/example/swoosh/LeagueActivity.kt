@@ -42,13 +42,13 @@ class LeagueActivity : BaseActivity() {
     fun nextButtonClicked(view: View) {
         if (selectedLeague != "")
         {
-            var intent = Intent(this, SkillActivity::class.java)
-            intent.putExtra("SELECTED", selectedLeague)
+            val intent = Intent(this, SkillActivity::class.java)
+            intent.putExtra(EXTRA_LEAGUE, selectedLeague)
             startActivity(intent)
         }
         else
         {
-            var message = Toast.makeText(this, "Please select a league.", Toast.LENGTH_SHORT)
+            val message = Toast.makeText(this, "Please select a league.", Toast.LENGTH_SHORT)
             message.setGravity(Gravity.BOTTOM,0, 200)
             message.show()
         }

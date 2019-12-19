@@ -4,17 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import android.widget.ToggleButton
-import com.example.swoosh.utilities.EXTRA_LEAGUE
 import com.example.swoosh.R
+import com.example.swoosh.model.Player
+import com.example.swoosh.utilities.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_league.*
 import java.util.*
 
 class LeagueActivity : BaseActivity() {
 
-    var selectedLeague: String = ""
+    private var player = Player("", "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,26 +26,26 @@ class LeagueActivity : BaseActivity() {
     fun mensLeagueButtonClicked(view: View) {
         womensLeagueButton.isChecked = false
         coedLeagueButton.isChecked = false
-        selectedLeague = setSelectedLeague(view as ToggleButton, R.string.mensTxt)
+        player.league = setSelectedLeague(view as ToggleButton, R.string.mensTxt)
     }
 
     fun womensLeagueButtonClicked(view: View) {
         mensLeagueButton.isChecked = false
         coedLeagueButton.isChecked = false
-        selectedLeague = setSelectedLeague(view as ToggleButton, R.string.womensTxt)
+        player.league = setSelectedLeague(view as ToggleButton, R.string.womensTxt)
     }
 
     fun coedLeagueButtonClicked(view: View) {
         mensLeagueButton.isChecked = false
         womensLeagueButton.isChecked = false
-        selectedLeague = setSelectedLeague(view as ToggleButton, R.string.co_edTxt)
+        player.league = setSelectedLeague(view as ToggleButton, R.string.co_edTxt)
     }
 
     fun nextButtonClicked(view: View) {
-        if (selectedLeague != "")
+        if (player.league != "")
         {
             val intent = Intent(this, SkillActivity::class.java)
-            intent.putExtra(EXTRA_LEAGUE, selectedLeague)
+            intent.putExtra(EXTRA_PLAYER, player)
             startActivity(intent)
         }
         else

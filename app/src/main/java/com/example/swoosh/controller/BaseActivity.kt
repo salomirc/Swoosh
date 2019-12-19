@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ToggleButton
+import com.example.swoosh.utilities.TAG
 
 open class BaseActivity : AppCompatActivity() {
-
-    val TAG = "LifeCycle"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "${javaClass.simpleName} OnCreate")

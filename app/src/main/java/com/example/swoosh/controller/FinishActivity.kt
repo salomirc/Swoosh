@@ -16,12 +16,9 @@ class FinishActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_finish)
 
-//        val league = this.intent.getStringExtra(EXTRA_LEAGUE)
-//        val skill = this.intent.getStringExtra(EXTRA_SKILL)
+        val player = this.intent.getParcelableExtra(EXTRA_PLAYER) ?: Player("","")
 
-        val player = this.intent.getParcelableExtra<Player>(EXTRA_PLAYER)
-
-        searchLeaguesText.text = this.getString(R.string.FinishActivityMessageTxt, player?.league, player?.skill)
+        searchLeaguesText.text = this.getString(R.string.FinishActivityMessageTxt, player.league, player.skill)
 
     }
 }

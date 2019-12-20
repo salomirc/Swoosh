@@ -4,10 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Player(var league: String?, var skill: String?) : Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readString()
-    )
+    constructor(parcel: Parcel) : this(parcel.readString(), parcel.readString())
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(league)

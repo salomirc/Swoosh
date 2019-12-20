@@ -13,10 +13,8 @@ import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
 
-//    private var league = ""
-////    private var skill = ""
-
-    var player = Player("", "")
+    //var player = Player("", "")
+    private lateinit var player: Player
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

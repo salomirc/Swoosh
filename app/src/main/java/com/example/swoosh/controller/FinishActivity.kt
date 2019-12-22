@@ -1,24 +1,22 @@
 package com.example.swoosh.controller
 
-import android.content.Context
 import android.graphics.Color
-import android.net.ConnectivityManager
-import android.net.Network
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.swoosh.R
 import com.example.swoosh.model.Player
-import com.example.swoosh.utilities.DUMMY_TEXT
-import com.example.swoosh.utilities.EXTRA_PLAYER
 import com.example.swoosh.services.InternetHelper
 import com.example.swoosh.services.RequestHelper
+import com.example.swoosh.utilities.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_finish.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 @Suppress("DEPRECATION")
 class FinishActivity : BaseActivity() {

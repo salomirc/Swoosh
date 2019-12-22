@@ -22,6 +22,7 @@
     <string name="selectLeagueMessage">Please select a league.</string>
     <string name="selectSkillMessage">Please select a skill.</string>
     <string name="FinishActivityMessageTxt">Looking for %1$s %2$s league near you…</string>
+    <string name="noInternetConnection">No Internet Connection</string>
     <string name="getdata">GetData</string>
     <string name="click_me">Click me!</string>
 </resources>

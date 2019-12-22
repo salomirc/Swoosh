@@ -1,11 +1,15 @@
 package com.example.swoosh.controller
 
+import android.content.Context
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ToggleButton
 import com.example.swoosh.utilities.TAG
+import java.lang.Exception
 
+@Suppress("DEPRECATION")
 open class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +49,21 @@ open class BaseActivity : AppCompatActivity() {
 
     fun setSelectedLeague(button: ToggleButton, resId: Int): String {
         return if (button.isChecked) getString(resId) else ""
+    }
+
+    fun hasInternetConnection() : Boolean{
+        try {
+            val connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            val status = activeNetworkInfo != null && activeNetworkInfo.isConnected
+            return status
+        }
+        catch (e: Exception)
+        {
+            println("Exception : ${e.message}")
+        }
+
+        return false
     }
 
 }

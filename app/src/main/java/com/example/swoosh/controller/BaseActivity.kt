@@ -51,19 +51,4 @@ open class BaseActivity : AppCompatActivity() {
         return if (button.isChecked) getString(resId) else ""
     }
 
-    fun hasInternetConnection() : Boolean{
-        try {
-            val connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val activeNetworkInfo = connectivityManager.activeNetworkInfo
-            val status = activeNetworkInfo != null && activeNetworkInfo.isConnected
-            return status
-        }
-        catch (e: Exception)
-        {
-            println("Exception : ${e.message}")
-        }
-
-        return false
-    }
-
 }

@@ -40,7 +40,7 @@ class FinishActivity : BaseActivity() {
 
             //GLOBAL SCOPE
             GlobalScope.launch(Dispatchers.IO) {
-                if(hasInternetConnection())
+                if(InternetHelper.hasInternetConnection(this@FinishActivity))
                 {
                     runOnUiThread {
                         progressBar.visibility = VISIBLE
@@ -69,11 +69,5 @@ class FinishActivity : BaseActivity() {
     fun onGetDataButtonRightClicked(view: View){
         if(toggle) getDataButtonRight.setBackgroundColor(Color.MAGENTA) else getDataButtonRight.setBackgroundColor(Color.YELLOW)
         toggle = !toggle
-    }
-
-    suspend fun makeHTTPRequestGET(ulr: String) : String{
-
-        delay(5000)
-        return DUMMY_TEXT
     }
 }

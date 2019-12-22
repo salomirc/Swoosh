@@ -1,15 +1,13 @@
 package com.example.swoosh.services
 
-import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
-import java.lang.Exception
 
-object InternetHelper : Activity() {
+object InternetHelper {
 
-    fun hasInternetConnection() : Boolean{
+    fun hasInternetConnection(context: Context) : Boolean{
         try {
-            val connectivityManager = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetworkInfo = connectivityManager.activeNetworkInfo
             return activeNetworkInfo != null && activeNetworkInfo.isConnected
         }

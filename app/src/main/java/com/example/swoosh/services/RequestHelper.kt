@@ -5,7 +5,7 @@ import okhttp3.Request
 
 object RequestHelper {
 
-    private val client: OkHttpClient = OkHttpClient()
+    private val client = OkHttpClient()
 
     fun getStringAsync(url: String): String?{
 

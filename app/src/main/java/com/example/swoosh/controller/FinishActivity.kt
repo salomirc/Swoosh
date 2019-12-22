@@ -30,7 +30,7 @@ class FinishActivity : AppCompatActivity() {
         runBlocking(){
 
             //GLOBAL SCOPE
-            GlobalScope.launch(Dispatchers.IO) {
+            GlobalScope.launch(Dispatchers.Main) {
                 val result = makeHTTPRequestGET("www.example.com")
                 progressBar.visibility = GONE
                 resultsTextView.text = "$result \n\n ${Thread.currentThread().name}"

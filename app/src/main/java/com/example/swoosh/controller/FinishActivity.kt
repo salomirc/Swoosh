@@ -25,7 +25,8 @@ import kotlinx.coroutines.withContext
 class FinishActivity : BaseActivity() {
 
     private var toggle: Boolean = false
-    private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+//    private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    private val moshi = Moshi.Builder().build()
     val type = Types.newParameterizedType(MutableList::class.java, String::class.java)
     val adapter = moshi.adapter<MutableList<String>>(type)
 

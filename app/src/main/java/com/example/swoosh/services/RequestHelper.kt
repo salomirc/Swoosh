@@ -10,6 +10,8 @@ import okhttp3.Request
 object RequestHelper {
 
     private val client = OkHttpClient()
+
+    //For custom Types you have to .add(KotlinJsonAdapterFactory())
     private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
     private val gitInfoJsonAdapter = moshi.adapter(GitInfo::class.java)
 

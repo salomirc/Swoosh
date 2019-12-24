@@ -1,13 +1,10 @@
 package com.example.swoosh.controller
 
-import android.content.Context
-import android.net.ConnectivityManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatActivity
 import com.example.swoosh.utilities.TAG
-import java.lang.Exception
 
 @Suppress("DEPRECATION")
 open class BaseActivity : AppCompatActivity() {

@@ -83,7 +83,7 @@
             android:fontFamily="sans-serif"
             android:textAlignment="center"
             android:textColor="@android:color/background_light"
-            android:textSize="8sp"
+            android:textSize="12sp"
             tools:text="Results from HttpRequest" />
     </ScrollView>
 

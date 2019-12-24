@@ -1,6 +1,7 @@
 package com.example.swoosh.services
 
 import GitInfo
+import com.google.gson.Gson
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -40,7 +41,8 @@ object RequestHelper {
             val request = Request.Builder().url(url).build()
             val response = client.newCall(request).execute()
             if (response.isSuccessful){
-                val gitInfo = gitInfoJsonAdapter.fromJson(response.body!!.source())
+//                val gitInfo = gitInfoJsonAdapter.fromJson(response.body!!.source())
+                val gitInfo = Gson().fromJson(response.body!!.string(), GitInfo::class.java)
 
                 val sb: StringBuilder = StringBuilder()
                 sb.append("${gitInfo!!.url} \n\n ${gitInfo!!.id} \n\n")

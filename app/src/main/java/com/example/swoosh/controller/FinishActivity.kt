@@ -9,12 +9,12 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import com.example.swoosh.R
 import com.example.swoosh.model.Player
+import com.example.swoosh.model.Student
 import com.example.swoosh.services.InternetHelper
 import com.example.swoosh.services.RequestHelper
 import com.example.swoosh.utilities.EXTRA_PLAYER
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_finish.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,10 +25,6 @@ import kotlinx.coroutines.withContext
 class FinishActivity : BaseActivity() {
 
     private var toggle: Boolean = false
-//    private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
-    private val moshi = Moshi.Builder().build()
-    val type = Types.newParameterizedType(MutableList::class.java, String::class.java)
-    val adapter = moshi.adapter<MutableList<String>>(type)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,10 +49,13 @@ class FinishActivity : BaseActivity() {
                 withContext(Dispatchers.Main) {
                     progressBar.visibility = GONE
 
-                    val items = mutableListOf<String>("Apple", "Pear", "Banana")
-                    val jsonStr = adapter.toJson(items)
-                    val newItems = adapter.fromJson(jsonStr)
-                    resultsTextView.text = "$result \n\n ${Thread.currentThread().name}  \n\n $jsonStr \n\n ${newItems.toString()}"
+                    val list = listOf(Student("Ciprian", 21), Student("Viorel", 32), Student("Andrei", 19))
+                    val gson = Gson()
+                    val jsonString = gson.toJson(list)
+                    val sType = object : TypeToken<List<Student>>() { }.type
+                    val students = gson.fromJson<List<Student>>(jsonString, sType)
+
+                    resultsTextView.text = "$result \n\n ${Thread.currentThread().name}  \n\n $jsonString \n\n ${students.toString()}"
                 }
             }
 

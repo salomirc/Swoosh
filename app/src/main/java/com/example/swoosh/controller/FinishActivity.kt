@@ -33,7 +33,6 @@ class FinishActivity : BaseActivity() {
         val player = this.intent.getParcelableExtra(EXTRA_PLAYER) ?: Player("","")
 
         searchLeaguesText.text = this.getString(R.string.FinishActivityMessageTxt, player.league, player.skill)
-        //exampleGlobalScopeLaunch()
     }
 
     fun onGetDataButtonClicked(view: View){

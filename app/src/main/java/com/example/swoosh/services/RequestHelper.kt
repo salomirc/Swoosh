@@ -4,6 +4,7 @@ import GitInfo
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.io.IOException
 
 
 object RequestHelper {
@@ -14,9 +15,8 @@ object RequestHelper {
 
         try {
             val request = Request.Builder().url(url).build()
-            val response = client.newCall(request).execute()
-            if (response.isSuccessful){
-                return response.body!!.string()
+            client.newCall(request).execute().use {
+                if (it.isSuccessful) return it.body!!.string()
             }
         }
         catch (e: Exception){
@@ -29,13 +29,14 @@ object RequestHelper {
 
         try {
             val request = Request.Builder().url(url).build()
-            val response = client.newCall(request).execute()
-            if (response.isSuccessful){
-                val gitInfo = Gson().fromJson(response.body!!.string(), GitInfo::class.java)
+            client.newCall(request).execute().use { response ->
+                if (response.isSuccessful){
+                    val gitInfo = Gson().fromJson(response.body!!.string(), GitInfo::class.java)
 
-                val sb: StringBuilder = StringBuilder()
-                sb.append("${gitInfo.url} \n\n ${gitInfo.id} \n\n")
-                return sb.toString()
+                    val sb: StringBuilder = StringBuilder()
+                    sb.append("${gitInfo.url} \n\n ${gitInfo.id} \n\n")
+                    return sb.toString()
+                }
             }
         }
         catch (e: Exception){

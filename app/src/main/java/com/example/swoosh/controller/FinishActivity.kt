@@ -1,5 +1,6 @@
 package com.example.swoosh.controller
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -35,6 +36,7 @@ class FinishActivity : BaseActivity() {
         searchLeaguesText.text = this.getString(R.string.FinishActivityMessageTxt, player.league, player.skill)
     }
 
+    @SuppressLint("SetTextI18n")
     fun onGetDataButtonClicked(view: View){
         if(InternetHelper.hasInternetConnection(this@FinishActivity))
         {
@@ -54,7 +56,7 @@ class FinishActivity : BaseActivity() {
                     val sType = object : TypeToken<List<Student>>() { }.type
                     val students = gson.fromJson<List<Student>>(jsonString, sType)
 
-                    resultsTextView.text = "$result \n\n ${Thread.currentThread().name}  \n\n $jsonString \n\n ${students.toString()}"
+                    resultsTextView.text = "$result \n\n ${Thread.currentThread().name}  \n\n $jsonString \n\n $students"
                 }
             }
 

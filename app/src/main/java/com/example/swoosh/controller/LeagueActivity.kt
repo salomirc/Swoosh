@@ -8,7 +8,10 @@ import android.widget.Toast
 import android.widget.ToggleButton
 import com.example.swoosh.R
 import com.example.swoosh.model.Player
+import com.example.swoosh.model.Student
+import com.example.swoosh.utilities.EXTRA_NAME
 import com.example.swoosh.utilities.EXTRA_PLAYER
+import com.example.swoosh.utilities.EXTRA_STUDENT
 import kotlinx.android.synthetic.main.activity_league.*
 import java.util.*
 
@@ -55,7 +58,9 @@ class LeagueActivity : BaseActivity() {
         if (player.league != "")
         {
             val intent = Intent(this, SkillActivity::class.java)
+            intent.putExtra(EXTRA_NAME, "John")
             intent.putExtra(EXTRA_PLAYER, player)
+            intent.putExtra(EXTRA_STUDENT, Student("Ciprian", 25))
             startActivity(intent)
         }
         else

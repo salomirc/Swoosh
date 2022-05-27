@@ -1,6 +1,8 @@
 package com.example.swoosh.model
 
+import java.io.Serializable
+
 data class Student (
     val name: String,
-    val Age: Int
-)
+    val age: Int
+): Serializable

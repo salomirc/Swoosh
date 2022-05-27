@@ -15,7 +15,7 @@ class WelcomeActivity : BaseActivity() {
         val getStartedUppercase = GetStartedButton.text.toString().toUpperCase(Locale.getDefault())
         GetStartedButton.text = getStartedUppercase
 
-        GetStartedButton.setOnClickListener{
+        GetStartedButton.setOnClickListener {
             val leagueIntent = Intent(this, LeagueActivity::class.java)
             startActivity(leagueIntent)
         }

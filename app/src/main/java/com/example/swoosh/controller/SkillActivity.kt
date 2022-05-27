@@ -8,29 +8,38 @@ import android.widget.Toast
 import android.widget.ToggleButton
 import com.example.swoosh.R
 import com.example.swoosh.model.Player
+import com.example.swoosh.model.Student
+import com.example.swoosh.utilities.EXTRA_NAME
 import com.example.swoosh.utilities.EXTRA_PLAYER
+import com.example.swoosh.utilities.EXTRA_STUDENT
 import kotlinx.android.synthetic.main.activity_skill.*
 
 class SkillActivity : BaseActivity() {
 
-    //var player = Player("", "")
+    private lateinit var name: String
     private lateinit var player: Player
-
+    private lateinit var student: Student
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        outState.putString(EXTRA_NAME, name)
         outState.putParcelable(EXTRA_PLAYER, player)
+        outState.putSerializable(EXTRA_STUDENT, student)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        this.player = savedInstanceState.getParcelable(EXTRA_PLAYER) ?: Player("", "")
+        name = savedInstanceState.getString(EXTRA_NAME, "")
+        player = savedInstanceState.getParcelable(EXTRA_PLAYER) ?: Player("", "")
+        student = savedInstanceState.getSerializable(EXTRA_STUDENT) as Student? ?: Student("", 0)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_skill)
-        player = this.intent.getParcelableExtra(EXTRA_PLAYER) ?: Player("","")
+        name = intent.getStringExtra(EXTRA_NAME) ?: ""
+        player = intent.getParcelableExtra(EXTRA_PLAYER) ?: Player("","")
+        student = intent.getSerializableExtra(EXTRA_STUDENT) as Student? ?: Student("", 0)
     }
 
     fun beginnerButtonClicked(view: View){
@@ -55,5 +64,4 @@ class SkillActivity : BaseActivity() {
             message.show()
         }
     }
-
 }
